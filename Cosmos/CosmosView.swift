@@ -462,3 +462,30 @@ Shows: ★★★★☆ (123)
     update()
   }
 }
+
+extension CosmosView {
+    
+    /// Just use it for UITests
+    func doubleIncrement() {
+        rating += CosmosAccessibility.accessibilityIncrement(rating, settings: settings)
+        rating += CosmosAccessibility.accessibilityIncrement(rating, settings: settings)
+        
+        didTouchCosmos?(rating)
+        didFinishTouchingCosmos?(rating)
+    }
+    
+    func doubleDecrement() {
+        rating += CosmosAccessibility.accessibilityIncrement(rating, settings: settings)
+        rating += CosmosAccessibility.accessibilityIncrement(rating, settings: settings)
+        
+        didTouchCosmos?(rating)
+        didFinishTouchingCosmos?(rating)
+    }
+    
+    func confirmValue(rating: Double) {
+        self.rating = rating
+        
+        didTouchCosmos?(rating)
+        didFinishTouchingCosmos?(rating)
+    }
+}
