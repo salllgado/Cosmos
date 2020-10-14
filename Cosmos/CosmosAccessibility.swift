@@ -5,7 +5,7 @@ import UIKit
 Functions for making cosmos view accessible.
 
 */
-struct CosmosAccessibility {
+public struct CosmosAccessibility {
   /**
   
   Makes the view accesible by settings its label and using rating as value.
@@ -60,7 +60,7 @@ struct CosmosAccessibility {
   rating is incremented by 0.5.
   
   */
-  static func accessibilityIncrement(_ rating: Double, settings: CosmosSettings) -> Double {
+  public static func accessibilityIncrement(_ rating: Double, settings: CosmosSettings) -> Double {
     var increment: Double = 0
       
     switch settings.fillMode {
@@ -70,7 +70,7 @@ struct CosmosAccessibility {
 
     case .half, .precise:
       increment = (ceil(rating * 2) - rating * 2) / 2
-      if increment == 0 { increment = 0.5 }      
+      if increment == 0 { increment = 0.5 }
     }
     
     if rating >= Double(settings.totalStars) { increment = 0 }
@@ -79,7 +79,7 @@ struct CosmosAccessibility {
     return roundedToFirstDecimalPlace
   }
   
-  static func accessibilityDecrement(_ rating: Double, settings: CosmosSettings) -> Double {
+  public static func accessibilityDecrement(_ rating: Double, settings: CosmosSettings) -> Double {
     var increment: Double = 0
     
     switch settings.fillMode {
